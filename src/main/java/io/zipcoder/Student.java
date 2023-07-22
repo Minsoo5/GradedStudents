@@ -36,12 +36,14 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public void getExamScores() {
+    public String getExamScores() {
+        StringBuilder examScoreChart = new StringBuilder();
         for (Double e : this.examScores) {
             int examNum = 1;
-            System.out.printf("Exam %d -> %.0f\n", examNum, e);
+            examScoreChart.append("Exam " + examNum + " -> " + e + "\n");
             examNum++;
         }
+        return examScoreChart.toString();
     }
 
     public double getAverageExamScore() {
@@ -58,6 +60,15 @@ public class Student {
     public void setExamScore(int examNumber, double newScore) {
         this.examScores.set(examNumber -1 , newScore);
 
+    }
+
+    public String toString() {
+        StringBuilder studentInfo = new StringBuilder();
+        studentInfo.append("Student Name : " + this.getFirstname() + " " + this.getLastName() + "\n");
+        studentInfo.append("Average Score: " + this.getAverageExamScore() + "\n");
+        studentInfo.append("Exam Scores:\n" + this.getExamScores());
+
+        return studentInfo.toString();
     }
 
     public Integer getNumberOfExamsTaken() {return this.examScores.size();}

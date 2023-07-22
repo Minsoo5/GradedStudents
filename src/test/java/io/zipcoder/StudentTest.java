@@ -30,7 +30,8 @@ public class StudentTest {
         Student student1 = new Student("Leon", "Hunter", student1Exams);
 
         //When
-        student1.getExamScores();
+        System.out.println(student1.getExamScores());
+        System.out.println(student1.toString());
         String expectedConsole = "Exam 1 -> 100\nExam 1 -> 95\nExam 1 -> 123\nExam 1 -> 96\n";
 
 
@@ -71,14 +72,18 @@ public class StudentTest {
         Assert.assertEquals(expectedgregArray, actualgregArray);
 
     }
-
+    @Test
     public void getAverageExamScoreTest() {
         //Given
+        Double[] kellysExams = {100.0, 95.0, 123.0, 96.0};
+        Student kelly = new Student("Leon", "Hunter", kellysExams);
 
         //When
+        double expectedAverage = 103.5;
+        double actualAverage = kelly.getAverageExamScore();
 
         //Then
-
+        Assert.assertTrue(expectedAverage == actualAverage);
     }
 
     public void getNumberOfExamsTakenTest() {
