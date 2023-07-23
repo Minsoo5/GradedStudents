@@ -46,7 +46,7 @@ public class Student {
         return examScoreChart.toString();
     }
 
-    public double getAverageExamScore() {
+    public double getStudentAverageExamScore() {
         double total = 0;
         for (Double s : this.examScores) {
             total+= s;
@@ -65,7 +65,7 @@ public class Student {
     public String toString() {
         StringBuilder studentInfo = new StringBuilder();
         studentInfo.append("Student Name : " + this.getFirstname() + " " + this.getLastName() + "\n");
-        studentInfo.append("Average Score: " + this.getAverageExamScore() + "\n");
+        studentInfo.append("Average Score: " + this.getStudentAverageExamScore() + "\n");
         studentInfo.append("Exam Scores:\n" + this.getExamScores());
 
         return studentInfo.toString();

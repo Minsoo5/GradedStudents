@@ -73,16 +73,39 @@ public class StudentTest {
 
     }
     @Test
-    public void getAverageExamScoreTest() {
+    public void getStudentAverageExamScoreTest() {
         //Given
         Double[] kellysExams = {100.0, 95.0, 123.0, 96.0};
         Student kelly = new Student("Leon", "Hunter", kellysExams);
 
         //When
         double expectedAverage = 103.5;
-        double actualAverage = kelly.getAverageExamScore();
+        double actualAverage = kelly.getStudentAverageExamScore();
 
         //Then
+        Assert.assertTrue(expectedAverage == actualAverage);
+    }
+
+    @Test
+    public void getAverageExamScoreTest() {
+        //Given
+        Double[] s1Scores = { 120.0, 100.0, 95.0};
+        Double[] s2Scores = { 100.0, 55.0, 85.0 };
+
+        Student s1 = new Student("student", "one", s1Scores);
+        Student s2 = new Student("student", "two", s2Scores);
+
+        Student[] students = {s1,s2};
+        Classroom classroom = new Classroom(students);
+
+        // When
+        System.out.println("ressult " + classroom.getStudents());
+
+        double expectedAverage = 92.5;
+        double actualAverage = classroom.getAverageExamScore();
+
+         //Then
+
         Assert.assertTrue(expectedAverage == actualAverage);
     }
 
