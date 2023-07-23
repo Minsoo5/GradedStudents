@@ -108,6 +108,23 @@ public class StudentTest {
 
         Assert.assertTrue(expectedAverage == actualAverage);
     }
+    @Test
+    public void addStudentTest() {
+        //Given
+        Classroom tutorRoom = new Classroom(1);
+        Double[] scores = { 75.0, 68.5, 87.5};
+
+        Student tStudent = new Student("John","Smith", scores);
+        tutorRoom.addStudent(tStudent);
+
+        //When
+        Student expectedStudent = tStudent;
+        Student actualStudent = tutorRoom.getStudents()[0];
+
+        //Then
+        Assert.assertEquals(expectedStudent, actualStudent);
+
+    }
 
     public void getNumberOfExamsTakenTest() {
     }

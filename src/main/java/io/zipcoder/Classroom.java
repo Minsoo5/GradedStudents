@@ -19,6 +19,7 @@ public class Classroom {
         this.students = students;
     }
 
+
     public Classroom(int maxNumberOfStudents, Student[] students) {
         this.students = new Student[maxNumberOfStudents];
         for (Student s : students) {
@@ -51,7 +52,12 @@ public class Classroom {
 
 
     public void addStudent(Student student) {
-
+        for (int i = 0; i < this.students.length; i++) {
+            if (students[i] == null) {
+                students[i] = student;
+                break;
+            }
+        }
     }
 
 
